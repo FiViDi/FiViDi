@@ -21,21 +21,26 @@ function Login() {
 
 	return (
 		<>
-			<section className="login ">
-				<label>LOGIN</label>
-				<input
-					type="text"
-					placeholder="Username"
-					onChange={isUsername}
-					value={username}
-				></input>
-				<input
-					type="password"
-					placeholder="Password"
-					onChange={isPassword}
-					value={password}
-				></input>
-				<button onClick={onLoginHandler}>Sign In</button>
+			<section className="wrapper">
+				<form action="">
+					<h1>LOGIN</h1>
+					<div className="input-box">
+						<input
+							type="text"
+							placeholder="Username"
+							onChange={isUsername}
+							value={username}
+						></input>
+						<input
+							type="password"
+							placeholder="Password"
+							onChange={isPassword}
+							value={password}
+						></input>
+					</div>
+					<button onClick={onLoginHandler}>Sign In</button>
+					<div className="register-link"></div>
+				</form>
 			</section>
 		</>
 	);
