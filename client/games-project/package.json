@@ -14,7 +14,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0",
-    "tailwindcss": "^3.3.5"
+    "stream-chat": "^8.14.2",
+    "tailwindcss": "^3.3.5",
+    "universal-cookie": "^6.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
