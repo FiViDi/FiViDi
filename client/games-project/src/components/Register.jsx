@@ -5,6 +5,7 @@ function Register() {
 	const [lastName, setLastName] = useState(null);
 	const [username, setUsername] = useState(null);
 	const [password, setPassword] = useState(null);
+	const [error, setError] = useState(null);
 
 	// ?User input
 	const isFirstName = (event) => {
@@ -19,6 +20,17 @@ function Register() {
 	const isPassword = (event) => {
 		setPassword(event.target.value);
 	};
+
+	// ?onClick handler
+	async function onRegisterHandler() {
+		try {
+		} catch (error) {
+			console.log(error);
+			setError(error);
+		}
+	}
+
+	if (error) return <h1>{error.message}</h1>;
 
 	return (
 		<>
@@ -49,6 +61,7 @@ function Register() {
 					onChange={isPassword}
 					value={password}
 				></input>
+				<button onClick={onRegisterHandler}>Sign Up</button>
 			</section>
 		</>
 	);
