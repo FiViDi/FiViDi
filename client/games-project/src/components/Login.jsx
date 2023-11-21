@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 function Login() {
-	const [username, setUsername] = useState(null);
-	const [password, setPassword] = useState(null);
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
 
 	// ?User login input
 	const isUsername = (event) => {
@@ -12,12 +13,14 @@ function Login() {
 		setPassword(event.target.value);
 	};
 
+	// ?Navigate after login
+	// const navigate = useNavigate();
+
 	// ?onClick Handler
 	async function onLoginHandler() {}
 
 	return (
 		<>
-			<h1>REGISTER</h1>
 			<section className="login ">
 				<label>LOGIN</label>
 				<input
@@ -32,7 +35,7 @@ function Login() {
 					onChange={isPassword}
 					value={password}
 				></input>
-				<button onClick={onRegisterHandler}>Sign In</button>
+				<button onClick={onLoginHandler}>Sign In</button>
 			</section>
 		</>
 	);

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
-	const [firstName, setFirstName] = useState(null);
-	const [lastName, setLastName] = useState(null);
-	const [username, setUsername] = useState(null);
-	const [password, setPassword] = useState(null);
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
 	const [error, setError] = useState(null);
 
 	// ?User input
@@ -21,9 +22,13 @@ function Register() {
 		setPassword(event.target.value);
 	};
 
+	// ?Navigate after register
+	const navigate = useNavigate();
+
 	// ?onClick handler
 	async function onRegisterHandler() {
 		try {
+			navigate("/login");
 		} catch (error) {
 			console.log(error);
 			setError(error);
@@ -34,7 +39,6 @@ function Register() {
 
 	return (
 		<>
-			<h1>REGISTER</h1>
 			<section className="register">
 				<label>REGISTER</label>
 				<input
