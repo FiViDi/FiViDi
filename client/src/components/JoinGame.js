@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useChatContext } from "stream-chat-react";
+import { useChatContext, Channel } from "stream-chat-react";
+import Game from "./Game";
+
 function JoinGame() {
   const [rivalUsername, setRivalUsername] = useState("");
   const { client } = useChatContext();
   const [channel, setChannel] = useState(null);
   const createChannel = async () => {
-    const response = await client.queryUser({ name: { $eq: rivalUsername } });
+    const response = await client.queryUsers({ name: { $eq: rivalUsername } });
 
     if (response.users.length === 0) {
       alert("User not found");
@@ -22,7 +24,9 @@ function JoinGame() {
   return (
     <>
       {channel ? (
-        <h1>Game Start</h1>
+        <Channel channel={channel}>
+          <Game channel={channel} />
+        </Channel>
       ) : (
         <div className="joinGame">
           <h4>Create Game</h4>
