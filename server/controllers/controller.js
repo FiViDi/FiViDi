@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require("uuid");
 const { StreamChat } = require("stream-chat");
-const { hashPassword } = require("../helpers/bcrypt");
+const bcrypt = require("bcryptjs");
 
 class Controller {
 	static async register(req, res) {
@@ -15,6 +15,7 @@ class Controller {
 			const userId = uuidv4();
 
 			// ?hashPassword
+			const hashPassword = await bcrypt.hash(password, 10);
 
 			const token = serverClient.createToken(userId);
 
