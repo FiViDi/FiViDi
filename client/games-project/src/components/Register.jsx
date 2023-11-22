@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 function Register() {
+	const cookies = new Cookies();
 	const [user, setUser] = useState(null);
 	const [error, setError] = useState(null);
 
@@ -12,9 +14,18 @@ function Register() {
 	// ?onClick handler
 	async function onRegisterHandler() {
 		try {
-			const response = await axios.post("http://localhost:3000/register", user);
-			console.log(response, "<< Register");
-			// navigate("/");
+			axios.post("http://localhost:3000/register", user).then((res) => {
+				const { token, userId, firstName, lastName, username, hashedPassword } = res.data;
+
+				cookies.set("token", token);
+				cookies.set("userId", userId);
+				cookies.set("firstName", firstName);
+				cookies.set("lastName", lastName);
+				cookies.set("username", username);
+				cookies.set("hashedPassword", hashedPassword);
+			});
+
+			navigate("/");
 		} catch (error) {
 			console.log(error);
 			setError(error);
