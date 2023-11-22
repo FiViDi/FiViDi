@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap");
+
+:root {
+	--primary-color: #9ade7b;
+	--secondary-color: #508d69;
+	--accent-color: #c5e898;
+	--white: #f4f6ff;
+	--black: #000000;
+	--background: var(--primary-color);
+}
+
+* {
+	font-family: "Josefin Sans", sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+.background {
+	background-color: var(--primary-color);
+	height: 100dvh;
+	padding-top: 1px;
+}
+
+.title {
+	color: var(--white);
+	text-align: center;
+	font-size: 40px;
+	margin-top: 10%;
+}
+
+.display {
+	color: var(--white);
+	font-size: 25px;
+	text-align: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.hide {
+	display: none;
+}
+
+.container {
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	grid-template-rows: 33% 33% 33%;
+	max-width: 300px;
+}
+
+.tile {
+	border: 1px solid var(--white);
+	min-width: 100px;
+	min-height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 50px;
+	cursor: pointer;
+}
+
+.playerX {
+	color: var(--black);
+}
+
+.playerO {
+	color: var(--black);
+}
+
+.controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1rem;
+}
+
+#reset {
+	background-color: var(--secondary-color);
+	color: var(--white);
+	padding: 8px;
+	border-radius: 8px;
+	border: none;
+	font-size: 20px;
+	margin-left: 1rem;
+	cursor: pointer;
+}
