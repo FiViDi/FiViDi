@@ -67,7 +67,6 @@ function Register() {
 								setUser({ ...user, username: event.target.value });
 							}}
 						></input>
-						{/* <i className="bx bxs-user"></i> */}
 					</div>
 					<div className="input-box">
 						<input
@@ -77,14 +76,13 @@ function Register() {
 								setUser({ ...user, password: event.target.value });
 							}}
 						></input>
-						{/* <i className="bx bxs-lock-alt"></i> */}
 					</div>
 					<button className="btn" onClick={onRegisterHandler}>
 						Register
 					</button>
 					<div className="register-link">
 						<p>
-							Already have an account? <Link to={"/"}>Sign In</Link>
+							Already have an account? <Link to={"/login"}>Sign In</Link>
 						</p>
 					</div>
 				</form>
