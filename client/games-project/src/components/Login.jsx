@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../App.css";
-import "boxicons";
 
 function Login() {
 	const [username, setUsername] = useState("");
@@ -28,7 +27,11 @@ function Login() {
 					<h1>LOGIN</h1>
 					<div className="input-box">
 						<input type="text" placeholder="Username" onChange={isUsername} value={username}></input>
+						<i class="bx bxs-user"></i>
+					</div>
+					<div className="input-box">
 						<input type="password" placeholder="Password" onChange={isPassword} value={password}></input>
+						<i class="bx bxs-lock-alt"></i>
 					</div>
 					<button onClick={onLoginHandler}>Sign In</button>
 					<div className="register-link">
