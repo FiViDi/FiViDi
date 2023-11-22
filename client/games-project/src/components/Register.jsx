@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+import axios from "axios";
 
 function Register() {
 	const [firstName, setFirstName] = useState("");
@@ -28,7 +30,14 @@ function Register() {
 	// ?onClick handler
 	async function onRegisterHandler() {
 		try {
-			navigate("/login");
+			const response = await axios.post("http://localhost:3000/register", {
+				firstName,
+				lastName,
+				username,
+				password,
+			});
+			// console.log(response, "<< Register");
+			// navigate("/");
 		} catch (error) {
 			console.log(error);
 			setError(error);
@@ -39,33 +48,34 @@ function Register() {
 
 	return (
 		<>
-			<section className="register">
-				<label>REGISTER</label>
-				<input
-					type="text"
-					placeholder="First Name"
-					onChange={isFirstName}
-					value={firstName}
-				></input>
-				<input
-					type="text"
-					placeholder="Last Name"
-					onChange={isLastName}
-					value={lastName}
-				></input>
-				<input
-					type="text"
-					placeholder="Username"
-					onChange={isUsername}
-					value={username}
-				></input>
-				<input
-					type="password"
-					placeholder="Password"
-					onChange={isPassword}
-					value={password}
-				></input>
-				<button onClick={onRegisterHandler}>Sign Up</button>
+			<section className="wrapper">
+				<form action="">
+					<h1>REGISTER</h1>
+					<div className="input-box">
+						<input type="text" placeholder="First Name" onChange={isFirstName} value={firstName}></input>
+						{/* <i className="bx bxs-user"></i> */}
+					</div>
+					<div className="input-box">
+						<input type="text" placeholder="Last Name" onChange={isLastName} value={lastName}></input>
+						{/* <i className="bx bxs-user"></i> */}
+					</div>
+					<div className="input-box">
+						<input type="text" placeholder="Username" onChange={isUsername} value={username}></input>
+						{/* <i className="bx bxs-user"></i> */}
+					</div>
+					<div className="input-box">
+						<input type="password" placeholder="Password" onChange={isPassword} value={password}></input>
+						{/* <i className="bx bxs-lock-alt"></i> */}
+					</div>
+					<button className="btn" onClick={onRegisterHandler}>
+						Register
+					</button>
+					<div className="register-link">
+						<p>
+							Already have an account? <Link to={"/"}>Sign In</Link>
+						</p>
+					</div>
+				</form>
 			</section>
 		</>
 	);

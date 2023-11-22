@@ -27,13 +27,15 @@ function Login() {
 					<h1>LOGIN</h1>
 					<div className="input-box">
 						<input type="text" placeholder="Username" onChange={isUsername} value={username}></input>
-						<i class="bx bxs-user"></i>
+						{/* <i className="bx bxs-user"></i> */}
 					</div>
 					<div className="input-box">
 						<input type="password" placeholder="Password" onChange={isPassword} value={password}></input>
-						<i class="bx bxs-lock-alt"></i>
+						{/* <i className="bx bxs-lock-alt"></i> */}
 					</div>
-					<button onClick={onLoginHandler}>Sign In</button>
+					<button className="btn" onClick={onLoginHandler}>
+						Sign In
+					</button>
 					<div className="register-link">
 						<p>
 							Don't have an account? <Link to={"/register"}>Register</Link>
