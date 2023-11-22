@@ -1,13 +1,12 @@
 import { useState } from "react";
-import "./App.css";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import JoinGame from "./components/JoinGame";
-import { Chat } from "stream-chat-react";
 import { StreamChat } from "stream-chat";
 import Cookies from "universal-cookie";
+import Login from "../components/Login";
+import SignUp from "../components/SignUp";
+import JoinGame from "../components/JoinGame";
+import { Chat } from "stream-chat-react";
 
-function App() {
+function HomePage() {
   const api_key = "47g7bms4xtmq";
   const cookies = new Cookies();
   const token = cookies.get("token");
@@ -44,20 +43,22 @@ function App() {
       });
   }
   return (
-    <div className="App">
-      {isAuth ? (
-        <Chat client={client}>
-          <JoinGame />
-          <button onClick={logOut}>Log Out</button>
-        </Chat>
-      ) : (
-        <>
-          <SignUp setIsAuth={setIsAuth} />
-          <Login setIsAuth={setIsAuth} />
-        </>
-      )}
-    </div>
+    <>
+      <div className="App">
+        {isAuth ? (
+          <Chat client={client}>
+            <JoinGame />
+            <button onClick={logOut}>Log Out</button>
+          </Chat>
+        ) : (
+          <>
+            <SignUp setIsAuth={setIsAuth} />
+            <Login setIsAuth={setIsAuth} />
+          </>
+        )}
+      </div>
+    </>
   );
 }
 
-export default App;
+export default HomePage;
