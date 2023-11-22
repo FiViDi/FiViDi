@@ -15,6 +15,9 @@ const api_key = process.env.API_KEY;
 const api_secret = process.env.STREAM_API_KEY;
 const serverClient = new StreamChat.getInstance(api_key, api_secret);
 
+// ?Route
+app.post("/register");
+
 // ?App listen port
 app.listen(port, () => {
 	console.log(`Games ini mendengarkan pada port ${port}`);
