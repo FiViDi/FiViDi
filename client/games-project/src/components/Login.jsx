@@ -18,7 +18,24 @@ function Login() {
 	const navigate = useNavigate();
 
 	// ?onClick Handler
-	async function onLoginHandler() {}
+	async function onLoginHandler() {
+		try {
+			axios.post("http://localhost:3001/login", { username, password }).then((res) => {
+				const { token, userId, firstName, lastName, username, hashedPassword } = res.data;
+
+				cookies.set("token", token);
+				cookies.set("userId", userId);
+				cookies.set("firstName", firstName);
+				cookies.set("lastName", lastName);
+				cookies.set("username", username);
+				cookies.set("hashedPassword", hashedPassword);
+			});
+
+			navigate("/");
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
 	return (
 		<>
@@ -26,11 +43,11 @@ function Login() {
 				<form action="">
 					<h1>LOGIN</h1>
 					<div className="input-box">
-						<input type="text" placeholder="Username" onChange={isUsername} value={username}></input>
+						<input type="text" placeholder="Username" onChange={isUsername}></input>
 						{/* <i className="bx bxs-user"></i> */}
 					</div>
 					<div className="input-box">
-						<input type="password" placeholder="Password" onChange={isPassword} value={password}></input>
+						<input type="password" placeholder="Password" onChange={isPassword}></input>
 						{/* <i className="bx bxs-lock-alt"></i> */}
 					</div>
 					<button className="btn" onClick={onLoginHandler}>

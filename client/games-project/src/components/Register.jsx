@@ -14,7 +14,7 @@ function Register() {
 	// ?onClick handler
 	async function onRegisterHandler() {
 		try {
-			axios.post("http://localhost:3000/register", user).then((res) => {
+			axios.post("http://localhost:3001/signup", user).then((res) => {
 				const { token, userId, firstName, lastName, username, hashedPassword } = res.data;
 
 				cookies.set("token", token);
@@ -25,7 +25,7 @@ function Register() {
 				cookies.set("hashedPassword", hashedPassword);
 			});
 
-			navigate("/");
+			navigate("/login");
 		} catch (error) {
 			console.log(error);
 			setError(error);
