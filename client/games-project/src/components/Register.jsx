@@ -1,28 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
 import axios from "axios";
 
 function Register() {
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
+	const [user, setUser] = useState(null);
 	const [error, setError] = useState(null);
-
-	// ?User input
-	const isFirstName = (event) => {
-		setFirstName(event.target.value);
-	};
-	const isLastName = (event) => {
-		setLastName(event.target.value);
-	};
-	const isUsername = (event) => {
-		setUsername(event.target.value);
-	};
-	const isPassword = (event) => {
-		setPassword(event.target.value);
-	};
 
 	// ?Navigate after register
 	const navigate = useNavigate();
@@ -30,13 +12,8 @@ function Register() {
 	// ?onClick handler
 	async function onRegisterHandler() {
 		try {
-			const response = await axios.post("http://localhost:3000/register", {
-				firstName,
-				lastName,
-				username,
-				password,
-			});
-			// console.log(response, "<< Register");
+			const response = await axios.post("http://localhost:3000/register", user);
+			console.log(response, "<< Register");
 			// navigate("/");
 		} catch (error) {
 			console.log(error);
@@ -52,19 +29,43 @@ function Register() {
 				<form action="">
 					<h1>REGISTER</h1>
 					<div className="input-box">
-						<input type="text" placeholder="First Name" onChange={isFirstName} value={firstName}></input>
+						<input
+							type="text"
+							placeholder="First Name"
+							onChange={(event) => {
+								setUser({ ...user, firstName: event.target.value });
+							}}
+						></input>
 						{/* <i className="bx bxs-user"></i> */}
 					</div>
 					<div className="input-box">
-						<input type="text" placeholder="Last Name" onChange={isLastName} value={lastName}></input>
+						<input
+							type="text"
+							placeholder="Last Name"
+							onChange={(event) => {
+								setUser({ ...user, lastName: event.target.value });
+							}}
+						></input>
 						{/* <i className="bx bxs-user"></i> */}
 					</div>
 					<div className="input-box">
-						<input type="text" placeholder="Username" onChange={isUsername} value={username}></input>
+						<input
+							type="text"
+							placeholder="Username"
+							onChange={(event) => {
+								setUser({ ...user, username: event.target.value });
+							}}
+						></input>
 						{/* <i className="bx bxs-user"></i> */}
 					</div>
 					<div className="input-box">
-						<input type="password" placeholder="Password" onChange={isPassword} value={password}></input>
+						<input
+							type="password"
+							placeholder="Password"
+							onChange={(event) => {
+								setUser({ ...user, password: event.target.value });
+							}}
+						></input>
 						{/* <i className="bx bxs-lock-alt"></i> */}
 					</div>
 					<button className="btn" onClick={onRegisterHandler}>

@@ -19,10 +19,11 @@ class Controller {
 
 			const token = serverClient.createToken(userId);
 
-			res.json({ token, userId, firstName, lastName, hashPassword });
+			res.json({ token, userId, firstName, lastName, username, hashPassword });
 		} catch (error) {
 			console.log(error, "<< error");
 			console.log(error.message, "<< error message");
+			res.json(error);
 		}
 	}
 }
