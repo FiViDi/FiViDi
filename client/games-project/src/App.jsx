@@ -10,6 +10,19 @@ function App() {
 	const token = cookies.get("token");
 	const client = StreamChat.getInstance(STREAM_PUBLIC_KEY);
 
+	if (token) {
+		client.connectUser(
+			{
+				id: cookies.get("userId"),
+				name: cookies.get("username"),
+				firstName: cookies.get("firstName"),
+				lastName: cookies.get("lastName"),
+				hashedPassword: cookies.get("hashedPassword"),
+			},
+			token
+		);
+	}
+
 	return (
 		<>
 			<RouterProvider router={router} />
