@@ -6,7 +6,7 @@
 	--accent-color: #c5e898;
 	--white: #f4f6ff;
 	--black: #000000;
-	--background: var(--secondary-color);
+	--background: var(--primary-color);
 }
 
 * {
@@ -22,4 +22,17 @@ body {
 	align-items: center;
 	min-height: 100dvh;
 	background: var(--background);
+}
+
+.wrapper {
+	width: 420px;
+	background: var(--secondary-color);
+	color: var(--white);
+}
+
+.wrapper .input-box {
+	width: 100%;
+	height: 50px;
+	background: var(--accent-color);
+	margin: 30px 0;
 }
