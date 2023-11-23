@@ -5,23 +5,23 @@ import SignUpPage from "../views/SignUpPage";
 import HomePage from "../views/HomePage";
 
 const router = createBrowserRouter([
-  {
-    element: <Parents />,
-    children: [
-      {
-        path: "/signup",
-        element: <SignUpPage />,
-      },
-      {
-        path: "/login",
-        element: <LoginPage />,
-      },
-      {
-        path: "/",
-        element: <HomePage />,
-      },
-    ],
-  },
+	{
+		element: <Parents />,
+		children: [
+			{
+				path: "/signup",
+				element: <SignUpPage />,
+			},
+			{
+				path: "/login",
+				element: <LoginPage />,
+			},
+			{
+				path: "/",
+				element: <HomePage />,
+			},
+		],
+	},
 ]);
 
 export default router;
