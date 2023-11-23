@@ -19,7 +19,7 @@ function GamePage() {
       cookies.remove("lastName", lastName);
       cookies.remove("username", username);
       cookies.remove("hashedPassword", hashedPassword);
-      // client.disconnectUser();
+      client.disconnectUser();
 
       navigate("/login");
     } catch (error) {
