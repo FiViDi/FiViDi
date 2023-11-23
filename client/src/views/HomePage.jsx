@@ -28,7 +28,6 @@ function HomePage() {
     client
       .connectUser(
         {
-          //connect to their spesific account
           id: cookies.get("userId"),
           name: cookies.get("username"),
           firstName: cookies.get("firstName"),
@@ -39,7 +38,6 @@ function HomePage() {
       )
       .then((user) => {
         setIsAuth(true);
-        // console.log(user);
       });
   }
   return (
