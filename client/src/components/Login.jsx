@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import Cookies from "universal-cookie";
-import { useDispatch, useSelector } from "react-redux";
 
 function Login({ setIsAuth }) {
-  const { username, password, loading, error } = useSelector()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const cookies = new Cookies();
   const login = () => {
     Axios.post("http://localhost:3001/login", {

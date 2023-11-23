@@ -4,7 +4,6 @@ import LoginPage from "../views/LoginPage";
 import SignUpPage from "../views/SignUpPage";
 import HomePage from "../views/HomePage";
 
-
 const router = createBrowserRouter([
   {
     element: <Parents />,
